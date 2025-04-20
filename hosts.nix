@@ -1,17 +1,16 @@
 {
-    technitium = {
-        ip = "10.1.1.88";
-        prefix = 21;
-        gateway = "10.0.0.1";
-        nameservers = [ "10.1.1.88" "1.1.1.1" ];
+    coredns = {
+        ip = "10.1.1.99";
+        nameservers = [ "1.1.1.1" "8.8.8.8" ];
     };
 
     omni = {
         ip = "10.5.5.200";
-        prefix = 21;
-        gateway = "10.0.0.1";
-        nameservers = [ "10.1.1.88" "1.1.1.1" ]
+        nameservers = [ "10.1.1.99" "1.1.1.1" ];
     };
     
-    docker = {};
+    docker = {
+        ip = "10.1.1.90";
+        nameservers = [ "10.1.1.99" "1.1.1.1" ];
+    };
 }
