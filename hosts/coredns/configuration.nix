@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    "${self}/modules/roles/base.nix"
+    ./dns.nix
   ];
 
   networking.hostname = "coredns.lab";
