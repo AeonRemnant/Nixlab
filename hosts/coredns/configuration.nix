@@ -4,7 +4,6 @@
   imports = [
     ./hardware-configuration.nix
     ./dns.nix
-    ./disko.nix
   ];
 
   boot.loader.systemd-boot = {
