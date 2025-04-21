@@ -4,8 +4,8 @@ description = "NixLab, a configuration set for my homelab.";
 inputs = {
   nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  clan = {
-    url = "github:pdtpartners/clan/main";
+  clan-core = {
+    url = "git+https://git.clan.lol/clan/clan-core";    
     inputs.nixpkgs.follows = "nixpkgs";
   };
 };
