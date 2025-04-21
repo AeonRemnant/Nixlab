@@ -3,9 +3,14 @@ description = "NixLab, a configuration set for my homelab.";
 
 inputs = {
   nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+  };
 };
 
-outputs = { self, nixpkgs }:
+outputs = { self, nixpkgs, disko }:
   let
 
     commonModules = [
@@ -25,7 +30,7 @@ outputs = { self, nixpkgs }:
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit self;
+          inherit self disko;
           hostArgs = finalHostArgs;
         };
         modules = commonModules ++ [ ./hosts/${name}/configuration.nix ];

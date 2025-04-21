@@ -1,5 +1,8 @@
+{ config, pkgs, lib, self, hostArgs, modulesPath, ... }:
+
 {
-  devices = {
+
+  disko.devices = {
     disk = {
       primary = {
         device = "/dev/vda";
