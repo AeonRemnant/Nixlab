@@ -6,7 +6,7 @@
     ./dns.nix
   ];
 
-  networking.hostName = "coredns.lab";
+  networking.hostName = "coredns";
 
   networking.interfaces.eth0 = {
     useDHCP = false;
