@@ -27,5 +27,5 @@
   networking.firewall.allowedTCPPorts = [ 53 ];
 
   # System state version
-  system.stateVersion = "unstable";
+  system.stateVersion = "25.05";
 }
