@@ -10,7 +10,7 @@ inputs = {
   };
 };
 
-outputs = { self, nixpkgs }:
+outputs = { self, nixpkgs, clan }:
   let
 
     commonModules = [
