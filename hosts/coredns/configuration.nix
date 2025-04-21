@@ -6,6 +6,7 @@
     ./dns.nix
   ];
 
+  boot.loader.grub.devices = "/dev/sda";
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
 
