@@ -6,6 +6,9 @@
     ./dns.nix
   ];
 
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiSupport = true;
+
   networking.hostName = "coredns";
 
   networking.interfaces.eth0 = {
