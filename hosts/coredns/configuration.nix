@@ -1,13 +1,12 @@
-{ config, pkgs, lib, self, hostArgs, modulesPath, ... }:
+{ config, pkgs, lib, self, hostArgs, ... }:
 
 {
   imports = [
-    (modulesPath + "/profiles/minimal.nix")
     ./hardware-configuration.nix
     ./dns.nix
   ];
 
-  networking.hostname = "coredns.lab";
+  networking.hostName = "coredns.lab";
 
   networking.interfaces.eth0 = {
     useDHCP = false;
