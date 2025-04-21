@@ -10,6 +10,8 @@ outputs = { self, nixpkgs }:
 
     commonModules = [
       ./modules/common/core.nix
+      ./modules/common/nushell.nix
+      ./modules/common/security.nix
     ];
 
     baseArgs = {
