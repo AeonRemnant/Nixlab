@@ -3,6 +3,11 @@ description = "NixLab, a configuration set for my homelab.";
 
 inputs = {
   nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  clan = {
+    url = "github:pdtpartners/clan/main";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 };
 
 outputs = { self, nixpkgs }:
@@ -33,8 +38,6 @@ outputs = { self, nixpkgs }:
     
     hostDefinitions = import ./hosts.nix;
 
-  in
-  {
     nixosConfigurations = nixpkgs.lib.mapAttrs
         (hostName: hostSpecificArgs:
           let
@@ -47,5 +50,12 @@ outputs = { self, nixpkgs }:
             }
         )
         hostDefinitions;
+  in
+  {
+    inherit nixosConfigurations;
+    clanConfigurations.default = import ./clan.nix {
+      inherit self nixpkgs clan;
+      inherit hostDefinitions nixosConfigurations;
+    };
   };
 }
