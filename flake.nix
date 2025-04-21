@@ -28,7 +28,7 @@ outputs = { self, nixpkgs }:
           inherit self;
           hostArgs = finalHostArgs;
         };
-        modules = commonModules ++ [ ./hosts/${name}/configuration.nix ];
+        modules = [ ./hosts/${name}/configuration.nix ];
       };
     
     hostDefinitions = import ./hosts.nix;
