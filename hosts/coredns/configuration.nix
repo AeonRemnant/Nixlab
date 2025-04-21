@@ -6,9 +6,12 @@
     ./dns.nix
   ];
 
-  boot.loader.grub.devices = "/dev/sda";
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 10; 
+  };
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = false;
 
   networking.hostName = "coredns";
 

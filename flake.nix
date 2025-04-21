@@ -17,7 +17,7 @@ outputs = { self, nixpkgs }:
     baseArgs = {
       prefix = 21;
       gateway = "10.0.0.1";
-      nameservers = [ "10.1.1.88" "1.1.1.1" ];
+      nameservers = [ "10.1.1.99" "1.1.1.1" ];
       system = "x86_64-linux";
       };
 
