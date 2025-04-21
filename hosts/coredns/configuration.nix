@@ -1,12 +1,10 @@
-{ config, pkgs, lib, self, hostArgs, ... }:
+{ config, pkgs, lib, self, hostArgs, modulesPath, ... }:
 
 {
   imports = [
+    (modulesPath + "/profiles/minimal.nix")
     ./hardware-configuration.nix
     ./dns.nix
-    ../../modules/common/core.nix
-    ../../modules/common/nushell.nix
-    ../../modules/common/security.nix
   ];
 
   networking.hostname = "coredns.lab";
@@ -29,7 +27,7 @@
   services.comin = {
     enable = true;
     repositoryUrl = "https://github.com:aeonremnant/nixlab.git";
-    flakeUri = ".#omni";
+    flakeUri = ".#coredns";
     schedule = "*:0/01";
   };
 
