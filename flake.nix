@@ -8,6 +8,10 @@ inputs = {
 outputs = { self, nixpkgs }:
   let
 
+    commonModules = [
+      ./modules/common/core.nix
+    ];
+
     baseArgs = {
       prefix = 21;
       gateway = "10.0.0.1";
@@ -22,13 +26,7 @@ outputs = { self, nixpkgs }:
           inherit self;
           hostArgs = finalHostArgs;
         };
-        modules = [ 
-          # Host specific 
-          ./hosts/${name}/configuration.nix
-
-          # Common
-          ./modules/common/core.nix
-        ];
+        modules = commonModules ++ [ ./hosts/${name}/configuration.nix ];
       };
     
     hostDefinitions = import ./hosts.nix;
