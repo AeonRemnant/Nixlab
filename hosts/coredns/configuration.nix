@@ -4,9 +4,9 @@
   imports = [
     ./hardware-configuration.nix
     ./dns.nix
-    ${self}/modules/common/core.nix
-    ${self}/modules/common/nushell.nix
-    ${self}/modules/common/security.nix
+    ../../modules/common/core.nix
+    ../../modules/common/nushell.nix
+    ../../modules/common/security.nix
   ];
 
   networking.hostname = "coredns.lab";
